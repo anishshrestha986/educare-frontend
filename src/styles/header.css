@@ -1,0 +1,49 @@
+.headerWrapper {
+  margin: 0 auto;
+  padding: 0 2rem 9.3rem 8rem;
+}
+.leftSide {
+  float: left;
+  margin-top: 40px;
+}
+
+.logocontainer {
+  text-align: center;
+}
+
+.rightSide {
+  float: right;
+  margin-top: -30px;
+}
+
+.rightSide p {
+  color: var(--blue);
+  font-weight: 500;
+}
+.rightSide p:hover {
+  text-decoration: underline;
+  transition: ease-in 100ms;
+}
+@media only screen and (max-width: 600px) {
+  .leftSide {
+    float: none;
+    position: absolute;
+    top: 90px;
+  }
+
+  .rightSide {
+    float: right !important;
+    margin-top: 25px;
+  }
+
+  .headerWrapper {
+    padding-bottom: 20px !important;
+    margin: 0 auto;
+  }
+
+  .iconList,
+  .iconListFirst {
+    margin: 0 !important;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+  text-decoration: none;
+  --blue: #87b6ff;
+  --white: #ffffff;
+  --black: #22262e;
+  --lightblue: #edfbff;
+  --grey: #bfc5cd;
+  --purple: #dee1ff;
+  --darkgrey: #383838;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Martel", sans-serif !important;
+  font-size: 1rem;
+  background-image: url(../src/images/Rectangle\ 51.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input {
+  font-family: "Martel", sans-serif !important;
+}
+
+button {
+  font-family: "Martel", sans-serif !important;
+}
+
+.app {
+  margin: -0.2rem auto;
+}
+
+.ctaBtn {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: var(--white);
+  background-image: linear-gradient(165deg, #bddeff, #6aa3ff);
+  padding: 25px 0px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  opacity: 1;
+  transition: ease-in 200ms;
+}
+
+.ctaBtn:hover {
+  opacity: 60%;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled] {
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 600px) {
+  .ctaBtn {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    padding: 22px 0px;
+    font-family: "Martel", sans-serif !important;
+  }
+
+  .mainContainer {
+    width: 87%;
+  }
+}
