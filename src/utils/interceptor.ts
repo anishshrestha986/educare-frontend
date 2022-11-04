@@ -12,8 +12,8 @@ const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
   if (config.headers === undefined) {
     config.headers = {};
   }
-  const token = JSON.parse(getLocalStorage("access_token")!);
-  config.headers.Authorization = `Bearer ${token.access_token}`;
+  const token = getLocalStorage("access_token");
+  config.headers.Authorization = `Bearer ${token}`;
 
   return config;
 };
@@ -33,11 +33,11 @@ const onResponseError = async (error: AxiosError<any>) => {
       error.response.status === 401 &&
       error.response.data.message === "jwt expired"
     ) {
-      const storedToken = JSON.parse(getLocalStorage("access_token")!);
+      const storedToken = getLocalStorage("access_token");
 
       try {
         const rs = await axios.post(`${API_URL}/auth/refresh`, {
-          refresh_token: storedToken.refresh_token,
+          refresh_token: storedToken,
         });
 
         const { token, user } = rs.data;
