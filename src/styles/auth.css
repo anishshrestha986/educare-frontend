@@ -1,5 +1,5 @@
 .authWrapper {
-  margin: 140px auto;
+  margin: 100px auto;
   font-size: 1.2rem;
 }
 
@@ -22,7 +22,7 @@
   color: var(--grey);
   font-weight: 400;
   font-size: 1.2rem;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 .authContainer form {
   margin: 0 auto;

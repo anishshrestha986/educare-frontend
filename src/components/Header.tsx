@@ -7,7 +7,10 @@ export default function Header() {
   const location = useLocation();
   useEffect(() => {}, [location]);
   const linkStyle = {
-    margin: "4rem",
+    marginTop: "0rem",
+    marginLeft: "4rem",
+    marginRight: "4rem",
+    marginBotoom: "2rem",
     textDecoration: "none",
     display: "inline-block",
   };

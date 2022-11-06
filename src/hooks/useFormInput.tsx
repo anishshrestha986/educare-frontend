@@ -1,18 +1,21 @@
 import React from "react";
 import InputField from "../components/InputField";
+import { useState, useCallback } from "react";
+import DropDown from "../components/Dropdown";
+import Menu from "../components/Menu";
 /**
  * creates and returns object representation of form field
  *
  * @param {string} placeholder - label to show with the form input
  * @param {string} name - input name
  * @param {string} inputType - input type
- * @param {string} defaultValue - default value for the input
+ * @param {string | Array<string> } defaultValue - default value for the input
  */
 export function createFormFieldConfig(
   placeholder: string,
   name: string,
   inputType: string,
-  defaultValue = ""
+  defaultValue?: string | Array<string>
 ) {
   return {
     renderInput: (
@@ -22,16 +25,29 @@ export function createFormFieldConfig(
       error: string,
       key: React.Key
     ) => {
+      if (inputType !== "dropdown") {
+        return (
+          <InputField
+            placeholder={placeholder}
+            key={key}
+            name={name}
+            inputType={inputType}
+            isValid={isValid}
+            value={value}
+            onChange={handleChange}
+            errorMessage={error}
+          />
+        );
+      }
+
       return (
-        <InputField
+        <Menu
           placeholder={placeholder}
           key={key}
           name={name}
           inputType={inputType}
-          isValid={isValid}
           value={value}
           onChange={handleChange}
-          errorMessage={error}
         />
       );
     },
@@ -41,7 +57,7 @@ export function createFormFieldConfig(
     touched: false,
   };
 }
-import { useState, useCallback } from "react";
+
 function useFormInput(formObj: Object) {
   const [form, setForm] = useState(formObj);
 
