@@ -1,6 +1,6 @@
 .headerWrapper {
   margin: 0 auto;
-  padding: 0 2rem 9.3rem 8rem;
+  padding: 0 0rem 6.3rem 8rem;
 }
 .leftSide {
   float: left;
@@ -13,7 +13,7 @@
 
 .rightSide {
   float: right;
-  margin-top: -30px;
+  margin-top: 0px;
 }
 
 .rightSide p {

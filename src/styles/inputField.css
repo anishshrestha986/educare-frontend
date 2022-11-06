@@ -8,17 +8,15 @@
   outline: none;
 }
 .inputField {
-  padding: 10px;
-  border: none;
-  border-bottom: 1px solid #777;
-  background-color: #eee;
-  outline: none;
-  font-size: 1.1rem;
-  box-sizing: border-box;
-  margin: 0 0 8px 0;
+  height: 60px;
+  background: var(--white);
+  border: 1px solid var(--darkgrey);
+  border-radius: 12px;
+  padding: 0 30px;
+  font-size: 1rem;
 }
 .inputField::placeholder {
-  color: var(--grey);
+  color: var(--darkgrey);
   font-style: normal;
   font-weight: 400;
 }

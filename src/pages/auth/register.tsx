@@ -6,9 +6,11 @@ import { useCustomMutation } from "../../hooks/useCustomMutation";
 import useFormInput from "../../hooks/useFormInput";
 import { createFormFieldConfig } from "../../hooks/useFormInput";
 import { register as registerUser } from "../../api/Auth";
+import "../../styles/auth.css";
 
 export default function Register() {
   const nav = useNavigate();
+
   const signUpForm = {
     name: {
       ...createFormFieldConfig("Full Name", "name", "text"),
@@ -25,6 +27,27 @@ export default function Register() {
         "confirmPassword",
         "password"
       ),
+    },
+    stream: {
+      ...createFormFieldConfig("Stream", "stream", "dropdown", [
+        "Engineering",
+        "Commerce",
+      ]),
+    },
+    level: {
+      ...createFormFieldConfig("Level", "level", "dropdown"),
+    },
+    faculty: {
+      ...createFormFieldConfig("Faculty", "faculty", "dropdown"),
+    },
+    class: {
+      ...createFormFieldConfig("Class", "class", "dropdown"),
+    },
+    section: {
+      ...createFormFieldConfig("Section", "section", "dropdown"),
+    },
+    contact_number: {
+      ...createFormFieldConfig("Contact Number", "contact number", "string"),
     },
   };
   const { mutate: register } = useCustomMutation<IRegisterRequest, any>({
