@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "../styles/dropdown.css";
 type DropDownProps = {
   options: string[];
   showDropDown: boolean;
@@ -7,10 +7,10 @@ type DropDownProps = {
   optionSelection: Function;
 };
 
-const DropDown: React.FC<DropDownProps> = ({
+export default function DropDown({
   options,
   optionSelection,
-}: DropDownProps): JSX.Element => {
+}: DropDownProps): JSX.Element {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
 
   /**
@@ -45,6 +45,4 @@ const DropDown: React.FC<DropDownProps> = ({
       </div>
     </>
   );
-};
-
-export default DropDown;
+}

@@ -50,7 +50,7 @@ export default function Home() {
             </div>
             <div className="buttonContainer">
               <Link to="/register">
-                <Button buttonWidth="200px" buttonPadding="20px">
+                <Button style={{ width: "200px", padding: "20px" }}>
                   Get Started
                 </Button>
               </Link>

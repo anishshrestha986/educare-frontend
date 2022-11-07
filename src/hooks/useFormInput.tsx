@@ -1,7 +1,6 @@
 import React from "react";
 import InputField from "../components/InputField";
 import { useState, useCallback } from "react";
-import DropDown from "../components/Dropdown";
 import Menu from "../components/Menu";
 /**
  * creates and returns object representation of form field
@@ -47,7 +46,6 @@ export function createFormFieldConfig(
           name={name}
           inputType={inputType}
           value={value}
-          onChange={handleChange}
         />
       );
     },

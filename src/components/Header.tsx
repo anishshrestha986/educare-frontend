@@ -32,9 +32,7 @@ export default function Header() {
           <p>Contact</p>
         </Link>
         <Link to="/login" style={linkStyle}>
-          <Button buttonWidth="150px" buttonPadding="10px">
-            Login
-          </Button>
+          <Button style={{ width: "150px", padding: "10px" }}>Login</Button>
         </Link>
       </div>
     </div>

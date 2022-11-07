@@ -1,11 +1,8 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import { IRegisterRequest } from "../../api/Auth";
 import Button from "../../components/Button";
-import { useCustomMutation } from "../../hooks/useCustomMutation";
 import useFormInput from "../../hooks/useFormInput";
 import { createFormFieldConfig } from "../../hooks/useFormInput";
-import { register as registerUser } from "../../api/Auth";
 import "../../styles/auth.css";
 
 export default function Register() {
@@ -34,30 +31,41 @@ export default function Register() {
         "Commerce",
       ]),
     },
-    level: {
-      ...createFormFieldConfig("Level", "level", "dropdown"),
-    },
     faculty: {
-      ...createFormFieldConfig("Faculty", "faculty", "dropdown"),
+      ...createFormFieldConfig("Faculty", "faculty", "dropdown", [
+        "BCT",
+        "BEX",
+        "BCE",
+        "BSc Csit",
+      ]),
     },
     class: {
-      ...createFormFieldConfig("Class", "class", "dropdown"),
+      ...createFormFieldConfig("Class", "class", "dropdown", [
+        "BCT 078",
+        "BCT 077",
+        "BCT 076",
+        "BCT 075",
+      ]),
     },
     section: {
-      ...createFormFieldConfig("Section", "section", "dropdown"),
+      ...createFormFieldConfig("Section", "section", "dropdown", [
+        "A",
+        "B",
+        "C",
+      ]),
     },
     contact_number: {
       ...createFormFieldConfig("Contact Number", "contact number", "string"),
     },
   };
-  const { mutate: register } = useCustomMutation<IRegisterRequest, any>({
-    api: registerUser,
-    success: "Registered Successfully",
-    error: "Error",
-    onSuccess: () => {
-      nav("/login");
-    },
-  });
+  // const { mutate: register } = useCustomMutation<IRegisterRequest, any>({
+  //   api: registerUser,
+  //   success: "Registered Successfully",
+  //   error: "Error",
+  //   onSuccess: () => {
+  //     nav("/login");
+  //   },
+  // });
 
   const { renderFormInputs } = useFormInput(signUpForm);
   return (
