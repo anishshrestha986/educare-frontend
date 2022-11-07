@@ -1,39 +1,25 @@
 import React, { useState } from "react";
 import DropDown from "./Dropdown";
+import "../styles/dropdown.css";
+import Button from "./Button";
+import { relative } from "path";
 
 interface MenuProps {
   placeholder: string;
-  marginLeft?: string;
   inputType?: string;
-  marginTop?: string;
-  width?: string;
-  display?: string;
   name?: string;
   step?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
-  isRequired?: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Menu({
-  placeholder,
-  marginLeft,
-  inputType,
-  marginTop,
-  width,
-  display,
-  onChange,
-  name,
-  isRequired,
-  value,
-  step,
-}: MenuProps): JSX.Element {
+export default function Menu({ placeholder, value }: MenuProps): JSX.Element {
   const options: Array<string> = value;
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
-  const [selectoption, setSelectoption] = useState<string>("");
+  const [selectoption, setSelectOption] = useState<string>("");
 
-  const toggleDropDown = () => {
+  const toggleDropDown = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     setShowDropDown(!showDropDown);
   };
 
@@ -44,31 +30,55 @@ export default function Menu({
   };
 
   const optionSelection = (option: string): void => {
-    setSelectoption(option);
+    setSelectOption(option);
   };
 
   return (
     <>
-      <div className="announcement">
-        <div>{selectoption ? `${selectoption}` : `${placeholder}`}</div>
+      <div className="menuWrapper">
+        <div className="announcement">
+          <div>{`${placeholder}:${selectoption}`}</div>
+        </div>
+        <Button
+          style={{
+            margin: "0.88rem 1rem 1rem 0",
+            width: "12rem",
+            position: "relative",
+            padding: "0.88rem 1rem 0.88rem 1rem",
+            color: "#717171",
+            backgroundColor: "bfc5cd",
+            backgroundImage: "none",
+            fontWeight: 400,
+            textAlign: "left",
+            whiteSpace: "nowrap",
+            verticalAlign: "middle",
+            border: "1px solid transparent",
+            fontSize: "0.85rem",
+            lineHeight: 1.5,
+            borderRadius: "0.25rem",
+            cursor: "pointer",
+          }}
+          className={showDropDown ? "active" : undefined}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>): void =>
+            toggleDropDown(e)
+          }
+          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+            dismissHandler(e)
+          }
+        >
+          <div>{selectoption ? "Select: " + selectoption : "Select ..."} </div>
+          {showDropDown && (
+            <DropDown
+              options={options}
+              showDropDown={false}
+              toggleDropDown={(e: React.MouseEvent<HTMLButtonElement>): void =>
+                toggleDropDown(e)
+              }
+              optionSelection={optionSelection}
+            />
+          )}
+        </Button>
       </div>
-      <button
-        className={showDropDown ? "active" : undefined}
-        onClick={(): void => toggleDropDown()}
-        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-          dismissHandler(e)
-        }
-      >
-        <div>{selectoption ? "Select: " + selectoption : "Select ..."} </div>
-        {showDropDown && (
-          <DropDown
-            options={options}
-            showDropDown={false}
-            toggleDropDown={(): void => toggleDropDown()}
-            optionSelection={optionSelection}
-          />
-        )}
-      </button>
     </>
   );
 }

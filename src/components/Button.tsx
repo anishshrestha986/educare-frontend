@@ -1,39 +1,30 @@
 import React from "react";
 
 interface buttonProps {
-  buttonPadding?: string;
-  buttonWidth?: string;
-  bgColor?: string;
-  textColor?: string;
-  borderRadius?: string;
+  className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onBlur?: React.FocusEventHandler<HTMLButtonElement>;
 }
 
 export default function Button({
-  buttonPadding,
-  buttonWidth,
-  bgColor,
-  textColor,
-  borderRadius,
+  className,
+  style,
   children,
   disabled,
   onClick,
+  onBlur,
 }: buttonProps) {
   return (
     <button
-      className="ctaBtn"
+      className={className ? className : "ctaBtn"}
       type="submit"
       disabled={disabled}
       onClick={onClick}
-      style={{
-        width: buttonWidth,
-        backgroundColor: bgColor,
-        color: textColor,
-        borderRadius,
-        padding: buttonPadding,
-      }}
+      onBlur={onBlur}
+      style={style}
     >
       {children}
     </button>
