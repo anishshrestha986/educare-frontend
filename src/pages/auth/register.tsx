@@ -4,6 +4,12 @@ import Button from "../../components/Button";
 import useFormInput from "../../hooks/useFormInput";
 import { createFormFieldConfig } from "../../hooks/useFormInput";
 import "../../styles/auth.css";
+import {
+  requiredRule,
+  minLengthRule,
+  maxLengthRule,
+  passwordMatchRule,
+} from "../../hooks/useFormInput";
 
 export default function Register() {
   const nav = useNavigate();
@@ -11,19 +17,35 @@ export default function Register() {
   const signUpForm = {
     name: {
       ...createFormFieldConfig("Full Name", "name", "text"),
+      validationRules: [
+        requiredRule("Name"),
+        minLengthRule("Name", 3),
+        maxLengthRule("Name", 25),
+      ],
     },
     email: {
       ...createFormFieldConfig("Email", "email", "email"),
+      validationRules: [
+        requiredRule("Email"),
+        minLengthRule("Email", 10),
+        maxLengthRule("Email", 25),
+      ],
     },
     password: {
       ...createFormFieldConfig("Password", "password", "password"),
+      validationRules: [
+        requiredRule("Password"),
+        minLengthRule("Password", 8),
+        maxLengthRule("Password", 20),
+      ],
     },
     confirmPassword: {
       ...createFormFieldConfig(
         "Confirm Password",
         "confirmPassword",
-        "password"
+        "Password"
       ),
+      validationRules: [passwordMatchRule()],
     },
     stream: {
       ...createFormFieldConfig("Stream", "stream", "dropdown", [
