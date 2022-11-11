@@ -9,7 +9,7 @@ import {
   minLengthRule,
   maxLengthRule,
   passwordMatchRule,
-} from "../../hooks/useFormInput";
+} from "../../utils/validationRule.auth";
 
 export default function Register() {
   const nav = useNavigate();
@@ -28,14 +28,14 @@ export default function Register() {
       validationRules: [
         requiredRule("Email"),
         minLengthRule("Email", 10),
-        maxLengthRule("Email", 25),
+        maxLengthRule("Email", 35),
       ],
     },
     password: {
       ...createFormFieldConfig("Password", "password", "password"),
       validationRules: [
         requiredRule("Password"),
-        minLengthRule("Password", 8),
+        minLengthRule("Password", 4),
         maxLengthRule("Password", 20),
       ],
     },
@@ -89,7 +89,7 @@ export default function Register() {
   //   },
   // });
 
-  const { renderFormInputs } = useFormInput(signUpForm);
+  const { renderFormInputs, isFormValid } = useFormInput(signUpForm);
   return (
     <>
       <HelmetProvider>
@@ -108,7 +108,7 @@ export default function Register() {
 
           <form className="signUpForm">
             {renderFormInputs()}
-            <Button>Sign Up </Button>
+            <Button disabled={!isFormValid()}>Submit</Button>
           </form>
         </div>
       </div>
