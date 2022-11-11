@@ -56,49 +56,6 @@ export function createFormFieldConfig(
     touched: false,
   };
 }
-function createValidationRule(
-  ruleName: string,
-  errorMessage: string,
-  validateFunc: Function
-) {
-  return {
-    name: ruleName,
-    message: errorMessage,
-    validate: validateFunc,
-  };
-}
-export function requiredRule(inputFieldName: string) {
-  return createValidationRule(
-    "required",
-    `${inputFieldName} required`,
-    (inputValue: string) => inputValue.length !== 0
-  );
-}
-
-export function minLengthRule(inputFieldName: string, minCharacters: number) {
-  return createValidationRule(
-    "minLength",
-    `${inputFieldName} should contain atleast ${minCharacters} characters`,
-    (inputValue: string) => inputValue.length >= minCharacters
-  );
-}
-
-export function maxLengthRule(inputFieldName: string, maxCharacters: number) {
-  return createValidationRule(
-    "minLength",
-    `${inputFieldName} cannot contain more than ${maxCharacters} characters`,
-    (inputValue: string) => inputValue.length <= maxCharacters
-  );
-}
-
-export function passwordMatchRule() {
-  return createValidationRule(
-    "passwordMatch",
-    `passwords do not match`,
-    (inputValue: string, formObj: { password: { value: string } }) =>
-      inputValue === formObj.password.value
-  );
-}
 
 function useFormInput(formObj: Object) {
   const [form, setForm] = useState(formObj);
@@ -111,11 +68,15 @@ function useFormInput(formObj: Object) {
   }
   const isInputFieldValid = useCallback(
     (inputField) => {
-      for (const rule of inputField.validationRules) {
-        if (!rule.validate(inputField.value, form)) {
-          inputField.errorMessage = rule.message;
-          return false;
+      if (inputField.validationRules) {
+        for (const rule of inputField.validationRules) {
+          if (!rule.validate(inputField.value, form)) {
+            inputField.errorMessage = rule.message;
+            return false;
+          }
         }
+
+        return true;
       }
 
       return true;
@@ -142,7 +103,6 @@ function useFormInput(formObj: Object) {
         // set its valid status to false
         inputObj.valid = false;
       }
-
       // mark input field as touched
       inputObj.touched = true;
       setForm({ ...form, [name]: inputObj });
@@ -150,7 +110,21 @@ function useFormInput(formObj: Object) {
     [form, isInputFieldValid]
   );
 
-  return { renderFormInputs };
+  const isFormValid = useCallback(() => {
+    let isValid = true;
+    const arr = Object.values(form);
+
+    for (let i = 0; i < arr.length; i++) {
+      if (!arr[i].valid) {
+        isValid = false;
+        break;
+      }
+    }
+
+    return isValid;
+  }, [form]);
+
+  return { renderFormInputs, isFormValid };
 }
 
 export default useFormInput;
