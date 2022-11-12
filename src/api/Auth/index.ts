@@ -4,11 +4,10 @@ import createApi from "../../utils/axios";
 const userApi = createApi("/auth");
 
 export interface IRegisterRequest {
-  username: string;
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
   password: string;
+  userName: string;
 }
 
 export interface ILoginRequest {

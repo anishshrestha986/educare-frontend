@@ -2,7 +2,37 @@ import React from "react";
 import InputField from "../components/InputField";
 import { useState, useCallback } from "react";
 import Menu from "../components/Menu";
+import { TypeOf } from "zod";
 
+type createFormFieldConfigReturn = {
+  renderInput: Function;
+  value: any;
+  valid: boolean;
+  errorMessage: string;
+  touched: boolean;
+  name: string;
+};
+type formFieldValue = {
+  renderInput: Function;
+  value: any;
+  valid: boolean;
+  errorMessage: string;
+  touched: boolean;
+  name: string;
+  validationRules?: {
+    name: string;
+    message: string;
+    validate: Function;
+  }[];
+};
+
+type formObj = {
+  [key: createFormFieldConfigReturn["name"]]: formFieldValue;
+};
+type useFormInputReturn = {
+  renderFormInputs: () => any[];
+  isFormValid: () => boolean;
+};
 /**
  * creates and returns object representation of form field
  *
@@ -16,7 +46,7 @@ export function createFormFieldConfig(
   name: string,
   inputType: string,
   defaultValue?: string | Array<string>
-): Object {
+): createFormFieldConfigReturn {
   return {
     renderInput: (
       handleChange: any,
@@ -50,6 +80,7 @@ export function createFormFieldConfig(
         />
       );
     },
+    name: name,
     value: defaultValue,
     valid: false,
     errorMessage: "",
@@ -57,29 +88,25 @@ export function createFormFieldConfig(
   };
 }
 
-function useFormInput(formObj: Object) {
+function useFormInput(formObj: formObj): useFormInputReturn {
   const [form, setForm] = useState(formObj);
 
   function renderFormInputs() {
     return Object.values(form).map((inputObj) => {
-      const { value, label, errorMessage, valid, renderInput } = inputObj;
-      return renderInput(onInputChange, value, valid, errorMessage, label);
+      const { value, errorMessage, valid, renderInput } = inputObj;
+      return renderInput(onInputChange, value, valid, errorMessage);
     });
   }
   const isInputFieldValid = useCallback(
-    (inputField) => {
-      if (inputField.validationRules) {
+    (inputField: formFieldValue) => {
+      if (inputField.validationRules)
         for (const rule of inputField.validationRules) {
           if (!rule.validate(inputField.value, form)) {
             inputField.errorMessage = rule.message;
             return false;
           }
         }
-
-        return true;
-      }
-
-      return true;
+      else return true;
     },
     [form]
   );
@@ -88,7 +115,7 @@ function useFormInput(formObj: Object) {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
       // copy input object whose value was changed
-      const inputObj = { ...form[name] };
+      const inputObj: formFieldValue = { ...form[name] };
       // update value
       inputObj.value = value;
 
