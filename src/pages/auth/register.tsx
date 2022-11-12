@@ -1,9 +1,12 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { register as registerUser, IRegisterRequest } from "../../api/Auth";
 import Button from "../../components/Button";
+import { useCustomMutation } from "../../hooks/useCustomMutation";
 import useFormInput from "../../hooks/useFormInput";
 import { createFormFieldConfig } from "../../hooks/useFormInput";
 import "../../styles/auth.css";
+import toast from "../../utils/toast";
 import {
   requiredRule,
   minLengthRule,
@@ -80,14 +83,28 @@ export default function Register() {
       ...createFormFieldConfig("Contact Number", "contact number", "string"),
     },
   };
-  // const { mutate: register } = useCustomMutation<IRegisterRequest, any>({
-  //   api: registerUser,
-  //   success: "Registered Successfully",
-  //   error: "Error",
-  //   onSuccess: () => {
-  //     nav("/login");
-  //   },
-  // });
+  const { mutate: register } = useCustomMutation<IRegisterRequest, any>({
+    api: registerUser,
+    success: "Registered Successfully",
+    error: "Error",
+    onSuccess: () => {
+      nav("/login");
+    },
+  });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = {
+      name: signUpForm.name.value,
+      email: signUpForm.email.value,
+      password: signUpForm.password.value,
+      userName: signUpForm.name.value,
+    };
+    if (signUpForm.password.value !== signUpForm.confirmPassword.value) {
+      toast({ message: "Passwords do not match", type: "error" });
+      return;
+    }
+    register(data);
+  };
 
   const { renderFormInputs, isFormValid } = useFormInput(signUpForm);
   return (
@@ -106,9 +123,17 @@ export default function Register() {
             </p>
           </div>
 
-          <form className="signUpForm">
+          <form className="signUpForm" onSubmit={handleSubmit}>
             {renderFormInputs()}
             <Button disabled={!isFormValid()}>Submit</Button>
+            <div className="authSubText">
+              <p>
+                Already have an account?&nbsp;
+                <Link to="/login" className="spans">
+                  Login!
+                </Link>
+              </p>
+            </div>
           </form>
         </div>
       </div>
