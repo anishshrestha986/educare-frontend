@@ -42,6 +42,7 @@
 }
 
 form .forgotPassword {
+  font-size: 1rem;
   color: var(--grey);
   text-decoration: none;
   display: block;
@@ -57,6 +58,7 @@ form .forgotPassword {
 }
 
 .authSubText p {
+  font-size: 1rem;
   color: var(--grey);
   display: inline-block;
 }
