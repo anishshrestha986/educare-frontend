@@ -11,17 +11,25 @@ export interface GenericResponse {
   message: string;
 }
 
-export interface ILoginResponse {
-  status: string;
+interface ILoginResponse {
   access_token: string;
-  data: {
-    user: IUser;
+  user: {
+    _id: string;
+    roles: Array<string>;
+    emailVerified: boolean;
+    email: string;
+    lastName: string;
+    firstName: string;
   };
 }
 
-export interface IUserResponse {
-  status: string;
-  data: {
-    user: IUser;
-  };
+interface IUserResponse {
+  _id: string;
+  roles: Array<string>;
+  emailVerified: boolean;
+  email: string;
+  lastName: string;
+  firstName: string;
 }
+
+export type { ILoginResponse, IUserResponse };

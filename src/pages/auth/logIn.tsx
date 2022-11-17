@@ -1,18 +1,23 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFormInput, { createFormFieldConfig } from "../../hooks/useFormInput";
 import {
   maxLengthRule,
   minLengthRule,
   requiredRule,
 } from "../../utils/validationRule.auth";
-import { logIn as logInUser, ILoginRequest, logIn } from "../../api/Auth";
+import { login as logInUser, ILoginRequest } from "../../api/Auth";
 import { useCustomMutation } from "../../hooks/useCustomMutation";
 import { ILoginResponse } from "../../types/interfaces/auth.interface";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Button from "../../components/Button";
+import AuthState from "../../store/auth/auth.state";
+import { useContext } from "react";
+import { LocationWithNav } from "../../types/interfaces";
 
-export default function LogIn() {
+export default function login() {
   const nav = useNavigate();
+  const { state } = useLocation() as LocationWithNav;
+
   const logInForm = {
     email: {
       ...createFormFieldConfig("Email", "email", "email"),
@@ -26,6 +31,7 @@ export default function LogIn() {
       ...createFormFieldConfig("Password", "password", "password"),
     },
   };
+  const { login: loginDispatch, isAuthenticated } = useContext(AuthState);
 
   const { mutate: login } = useCustomMutation<ILoginRequest, ILoginResponse>({
     api: logInUser,
@@ -43,7 +49,7 @@ export default function LogIn() {
       password: logInForm.password.value,
     };
 
-    logIn(data);
+    login(data);
   };
 
   const { renderFormInputs, isFormValid } = useFormInput(logInForm);
@@ -52,13 +58,13 @@ export default function LogIn() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Login - Educare</title>
+          <title>login - Educare</title>
         </Helmet>
       </HelmetProvider>
       <div className="authWrapper">
         <div className="authContainer">
           <div className="authFormHead">
-            <h1 className="authHeader">Login to continue.</h1>
+            <h1 className="authHeader">login to continue.</h1>
             <p className="authSubHeader">
               Take your leap and start learning with Educare.
             </p>
@@ -68,7 +74,7 @@ export default function LogIn() {
             <Link className="forgotPassword" to="/forgot-password">
               Forgot your password?
             </Link>
-            <Button>Login</Button>
+            <Button>login</Button>
             <div className="authSubText">
               <p>
                 Don&#8217;t have an account?&nbsp;
