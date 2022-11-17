@@ -1,6 +1,9 @@
 import { AxiosResponse } from "axios";
 import { METHODS } from "../../enums/axios.enum";
-import { ILoginResponse } from "../../types/interfaces/auth.interface";
+import {
+  ILoginResponse,
+  IUserResponse,
+} from "../../types/interfaces/auth.interface";
 import createApi from "../../utils/axios";
 
 const userApi = createApi("/auth");
@@ -27,13 +30,21 @@ export const register = async (registerBody: IRegisterRequest) => {
   return data;
 };
 
-export const logIn = async (
+export const login = async (
   logInBody: ILoginRequest
 ): Promise<AxiosResponse<ILoginResponse>> => {
   const data = await userApi({
-    url: "/logIn",
+    url: "/login",
     method: METHODS.POST,
     data: logInBody,
+  });
+
+  return data;
+};
+export const getMe = async (): Promise<AxiosResponse<IUserResponse>> => {
+  const data = await userApi({
+    url: "/me",
+    method: METHODS.GET,
   });
 
   return data;
