@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../images/logo.png";
 import "../styles/header.css";
@@ -6,6 +6,13 @@ import Button from "./Button";
 export default function Header() {
   const location = useLocation();
   useEffect(() => {}, [location]);
+  const [headerVisibility, setHeaderVisibility] = useState("block");
+  // const { isAuthenticated } = useContext(AuthState);
+
+  useEffect(() => {
+    if (location.pathname.match(/^\/dashboard/)) setHeaderVisibility("none");
+    else setHeaderVisibility("");
+  }, [location]);
   const linkStyle = {
     marginTop: "0rem",
     marginLeft: "4rem",
@@ -15,7 +22,7 @@ export default function Header() {
     display: "inline-block",
   };
   return (
-    <div className="headerWrapper" style={{ display: "block" }}>
+    <div className="headerWrapper" style={{ display: headerVisibility }}>
       <div className="leftSide">
         <div className="logoContainer">
           <Link to="/about">
