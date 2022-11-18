@@ -1,0 +1,193 @@
+.navBarWrapper {
+  height: 100%;
+  width: 280px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  transition: 0.3s ease-in-out;
+  overflow-x: hidden;
+  padding-top: 40px;
+  padding-left: 20px;
+}
+
+.navigation-menu {
+  margin-top: 30px;
+}
+.navLinks {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  padding: 20px 20px;
+  cursor: pointer;
+  color: var(--darkgrey);
+  text-decoration: none;
+}
+.navLinks:hover {
+  background-color: var(--blue);
+  color: black !important;
+}
+.navLinkLogOut {
+  background-color: var(--white);
+  margin-top: 250px !important;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  padding: 20px 20px;
+  cursor: pointer;
+  color: var(--darkgrey);
+  text-decoration: none;
+}
+.navLinkLogOut:hover {
+  background-color: var(--white) !important;
+  color: var(--blue);
+}
+
+.linkText {
+  padding-left: 16px;
+}
+.linkTextClosed {
+  visibility: hidden;
+}
+
+.headerLogo {
+  margin-top: -7px;
+  width: 150px;
+}
+
+.navigation-menu .activeLink {
+  color: var(--blue);
+  background-color: var(--blue);
+}
+
+.navigation-menu .navLinks:hover {
+  color: var(--blue);
+}
+
+.iconListFirst {
+  margin-left: 5rem;
+}
+
+.iconList {
+  margin: 0 0 0 4rem !important;
+}
+
+.dashboardIcon {
+  font-size: 1.2rem;
+  color: #b1b5bb;
+  border: none;
+  outline: none;
+}
+
+.dashboardIcon:hover {
+  color: var(--blue);
+}
+
+.userAvatar {
+  font-size: 2.3rem;
+  margin-top: -10px;
+}
+
+.hamburger {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+  background: none;
+}
+
+.content {
+  width: 80%;
+  margin: 50px auto 0 auto;
+}
+
+.breadcrumbCont {
+  margin-top: 40px;
+}
+
+.breadcrumbs span {
+  margin-right: 15px;
+  color: var(--grey);
+}
+
+.breadcrumbs span:hover {
+  color: var(--blue);
+}
+
+.breadcrumbs p {
+  display: inline;
+}
+
+.activeCrumb span {
+  color: var(--blue) !important;
+  font-weight: 500;
+}
+
+.breadcrumbIcon {
+  font-size: 0.9rem;
+  margin-right: 25px;
+  color: var(--grey);
+}
+
+.smallDeviceWrapper {
+  margin-top: 35px !important;
+  border-bottom: none;
+}
+
+@media screen and (max-width: 1366px) {
+  .headerWrapper {
+    padding: 0 50px;
+    margin: 0 auto;
+  }
+
+  .headerWrapper {
+    padding-bottom: 20px !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navigation-menu ul {
+    display: none;
+  }
+
+  .navigation-menu ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 77px);
+  }
+  .navigation-menu li {
+    text-align: center;
+    margin: 0;
+  }
+  .navigation-menu li a {
+    width: 100%;
+    padding: 1.5rem 0 1.5rem 1rem;
+    text-align: left;
+  }
+
+  .navigation-menu ul {
+    display: none;
+  }
+
+  .navigation-menu.expanded ul {
+    display: block;
+  }
+
+  .dashboardHeaderWrapper {
+    margin-top: 35px;
+  }
+}

@@ -106,7 +106,7 @@ function useFormInput(formObj: formObj): useFormInputReturn {
             return false;
           }
         }
-      else return true;
+      return true;
     },
     [form]
   );
@@ -120,16 +120,18 @@ function useFormInput(formObj: formObj): useFormInputReturn {
       inputObj.value = value;
 
       // update input field's validity
-      const isValidInput = isInputFieldValid(inputObj);
-      // if input is valid and it was previously invalid
-      // set its valid status to true
-      if (isValidInput && !inputObj.valid) {
-        inputObj.valid = true;
-      } else if (!isValidInput && inputObj.valid) {
-        // if input is not valid and it was previously valid
-        // set its valid status to false
-        inputObj.valid = false;
-      }
+      if (inputObj.validationRules) {
+        const isValidInput = isInputFieldValid(inputObj);
+        // if input is valid and it was previously invalid
+        // set its valid status to true
+        if (isValidInput && !inputObj.valid) {
+          inputObj.valid = true;
+        } else if (!isValidInput && inputObj.valid) {
+          // if input is not valid and it was previously valid
+          // set its valid status to false
+          inputObj.valid = false;
+        }
+      } else inputObj.valid = true;
       // mark input field as touched
       inputObj.touched = true;
       setForm({ ...form, [name]: inputObj });
