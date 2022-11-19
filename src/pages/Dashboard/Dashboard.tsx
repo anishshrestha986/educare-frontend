@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-
+import "../../styles/dashBoard.css";
 const Dashboard = () => {
   return (
     <div>

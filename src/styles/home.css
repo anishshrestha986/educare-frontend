@@ -74,6 +74,11 @@
   color: var(--blue);
   font-size: 1.5rem;
 }
+.featureIcon:hover {
+  width: 20px;
+  color: var(--black);
+  font-size: 1.5rem;
+}
 
 .featureName {
   text-align: center;

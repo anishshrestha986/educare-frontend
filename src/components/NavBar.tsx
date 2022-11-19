@@ -1,4 +1,4 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -6,26 +6,33 @@ import logo from "../images/logo.png";
 import "../styles/navbar.css";
 import { navData } from "../lib/navData";
 export default function NavBar() {
-  const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [isNavExpanded, setIsNavExpanded] = useState(true);
   return (
     <>
-      <div className="navBarWrapper">
+      <div
+        className={isNavExpanded ? "navBarWrapper expanded" : "navBarWrapper"}
+      >
         <Link to="/about">
-          <img src={logo} alt="" className="navBarLogo" />
+          <img
+            src={logo}
+            alt=""
+            className={isNavExpanded ? "navBarLogo" : "navBarLogo hidden"}
+          />
         </Link>
+
         <button
-          className="hamburger"
+          className={isNavExpanded ? "toggler arrowLeft" : "toggler hamburger"}
           onClick={() => {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
-          <FontAwesomeIcon icon={faBars} className="featureIcon" />
+          {isNavExpanded ? (
+            <FontAwesomeIcon icon={faAnglesLeft} className="featureIcon" />
+          ) : (
+            <FontAwesomeIcon icon={faBars} className="featureIcon" />
+          )}
         </button>
-        <div
-          className={
-            isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
-          }
-        >
+        <div className="navLinksWrapper">
           {navData.map((item) => {
             return (
               <NavLink
@@ -36,7 +43,9 @@ export default function NavBar() {
                 to={item.link}
               >
                 {item.icon}
-                <span className="linkText">{item.text}</span>
+                <span className={isNavExpanded ? "linkText" : "linkTextClosed"}>
+                  {item.text}
+                </span>
               </NavLink>
             );
           })}

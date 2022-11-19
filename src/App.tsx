@@ -1,9 +1,10 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Header from "./components/Header";
+import AuthLayout from "./layouts/auth.layout";
+import DashBoardLayout from "./layouts/dashboard.layout";
 import LogIn from "./pages/auth/logIn";
 import Register from "./pages/auth/register";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Assignments from "./pages/Dashboard/Assignments";
 import Chats from "./pages/Dashboard/Chats";
 import Grades from "./pages/Dashboard/Grades";
@@ -16,17 +17,20 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <div className="app">
         <Router>
-          <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/subjects" element={<Subjects />} />
-            <Route path="/assignments" element={<Assignments />} />
-            <Route path="/grades" element={<Grades />} />
-            <Route path="/chats" element={<Chats />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route element={<AuthLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<LogIn />} />
+            </Route>
+            <Route element={<DashBoardLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/subjects" element={<Subjects />} />
+              <Route path="/assignments" element={<Assignments />} />
+              <Route path="/grades" element={<Grades />} />
+              <Route path="/chats" element={<Chats />} />
+              <Route path="/settings" element={<Settings />} />
+            </Route>
           </Routes>
         </Router>
       </div>
