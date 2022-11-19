@@ -14,37 +14,37 @@ export const navData = [
     id: 0,
     icon: <FontAwesomeIcon icon={faHome} />,
     text: "DashBoard",
-    link: "dashboard",
+    link: "/dashboard",
   },
   {
     id: 1,
     icon: <FontAwesomeIcon icon={faBookBookmark} />,
     text: "Subjects",
-    link: "subjects",
+    link: "/subjects",
   },
   {
     id: 2,
     icon: <FontAwesomeIcon icon={faClipboard} />,
     text: "Assignments",
-    link: "assignments",
+    link: "/assignments",
   },
   {
     id: 3,
     icon: <FontAwesomeIcon icon={faSignal} />,
     text: "Grades",
-    link: "grades",
+    link: "/grades",
   },
   {
     id: 4,
     icon: <FontAwesomeIcon icon={faComment} />,
     text: "Chats",
-    link: "chats",
+    link: "/chats",
   },
   {
     id: 5,
     icon: <FontAwesomeIcon icon={faGear} />,
     text: "Settings",
-    link: "settings",
+    link: "/settings",
   },
 
   {
