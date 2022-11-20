@@ -1,0 +1,57 @@
+.subjectCard {
+  box-shadow: 1px 0px 11px -1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 0px 11px -1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 0px 11px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 50px 0px;
+  height: 740px;
+}
+.subjectCards {
+  margin: 0 auto;
+  display: grid;
+  gap: 9rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  text-align: left;
+  margin-top: 50px;
+}
+.subjectDetails {
+  padding: 0 65px;
+}
+.subjectIcon {
+  text-align: center;
+  height: 260px;
+}
+
+.subjectIcon:hover {
+  transform: scale(1.05);
+  transition: ease-in 250ms;
+}
+
+.subjectIcon img {
+  object-fit: cover;
+  width: 300px;
+}
+
+.subjectDetails {
+  margin-top: 50px;
+}
+
+.subjectName {
+  display: inline;
+  font-size: 1.3rem;
+  font-weight: 500;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 600px) {
+  .subjectCard {
+    padding: 50px 0px;
+  }
+
+  .subjectCard {
+    height: 760px;
+  }
+
+  .subjectDetails {
+    padding: 0 50px;
+  }
+}
