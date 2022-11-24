@@ -11,7 +11,7 @@
   --lightblue: #edfbff;
   --grey: #bfc5cd;
   --purple: #dee1ff;
-  --darkgrey: #7d7d7d;
+  --darkgrey: #5d5d5d;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -72,6 +72,15 @@ button {
 button:disabled,
 button[disabled] {
   cursor: not-allowed;
+}
+
+.pageTitle {
+  margin-top: 50px;
+  margin-left: 40px;
+  font-size: 1.5rem;
+  padding: 40px;
+  padding-left: 10px;
+  border-bottom: 0.8px solid var(--darkgrey);
 }
 
 @media only screen and (max-width: 600px) {

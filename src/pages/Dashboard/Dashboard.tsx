@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../../components/NavBar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import "../../styles/dashBoard.css";
+import "../../styles/dashboard/dashBoard.css";
 const Dashboard = () => {
   return (
     <div>
@@ -10,7 +10,6 @@ const Dashboard = () => {
           <title> Dashboard - Rent Store</title>
         </Helmet>
       </HelmetProvider>
-      <NavBar />
     </div>
   );
 };

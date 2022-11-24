@@ -1,0 +1,67 @@
+.subjectCard {
+  box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  height: 250px;
+  width: 180px;
+  background-color: var(--lightblue);
+  padding: 1rem;
+  text-align: left;
+}
+.subjectCard:hover {
+  transform: scale(1.05);
+  transition: ease-in 250ms;
+  background-color: var(--blue);
+}
+.subjectCard:hover .subjectName {
+  color: var(--white);
+}
+
+.subjectIcon {
+  text-align: left;
+  height: 20px;
+}
+
+.subjectIcon img {
+  object-fit: cover;
+  width: 50px;
+}
+.subjectDetails {
+  margin-top: 50px;
+  color: var(--darkgrey);
+}
+
+.subjectName {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.subjectLecturer {
+  margin-top: 5px;
+  font-size: 0.7rem;
+}
+.lecturerName {
+  margin-top: 5px;
+  font-size: 0.7rem;
+}
+.title {
+  font-size: 0.6rem;
+}
+.subjectAttendance {
+  margin-top: 10px;
+  border-top: 0.5px solid var(--darkgrey);
+}
+@media only screen and (max-width: 600px) {
+  .subjectCard {
+    padding: 50px 0px;
+  }
+
+  .subjectCard {
+    height: 760px;
+  }
+
+  .subjectDetails {
+    padding: 0 50px;
+  }
+}
