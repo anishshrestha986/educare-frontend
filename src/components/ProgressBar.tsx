@@ -4,11 +4,11 @@ type progressBarProps = {
 const ProgressBar = (props: progressBarProps) => {
   const { completed } = props;
   const containerStyles = {
-    height: 20,
+    height: "5px",
     width: "100%",
-    backgroundColor: "#00000",
+    backgroundColor: "white",
     borderRadius: 50,
-    margin: 50,
+    margin: "5px 0px 5px 0px",
   };
 
   const fillerStyles = {
@@ -20,17 +20,18 @@ const ProgressBar = (props: progressBarProps) => {
   };
 
   const labelStyles = {
-    padding: 5,
-    color: "white",
+    color: "grey",
+    fontSize: "0.7rem",
     fontWeight: "bold",
   };
 
   return (
-    <div style={containerStyles}>
-      <div style={fillerStyles}>
-        <span style={labelStyles}>{`${completed}%`}</span>
+    <>
+      <div style={containerStyles}>
+        <div style={fillerStyles}></div>
       </div>
-    </div>
+      <span style={labelStyles}>{`${completed}%`}</span>
+    </>
   );
 };
 

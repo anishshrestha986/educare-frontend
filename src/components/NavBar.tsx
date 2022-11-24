@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.png";
-import "../styles/navbar.css";
+import "../styles/dashboard/navbar.css";
 import { navData } from "../lib/navData";
 export default function NavBar() {
   const [isNavExpanded, setIsNavExpanded] = useState(true);

@@ -9,8 +9,8 @@ export default function SubjectCard(subject: ISubjectCardFields) {
   const [subjectIcon] = subject.medias;
   return (
     <>
-      <Link to={`/subjects/${subject._id}`}>
-        <div className="subjectCard">
+      <div className="subjectCard">
+        <Link to={`/subjects/${subject._id}`}>
           <div className="subjectIcon">
             <img
               src={
@@ -20,25 +20,26 @@ export default function SubjectCard(subject: ISubjectCardFields) {
               }
               alt="Subject"
             />
-            <div className="subjectDetails">
-              <div className="subjectName">{subject.name}</div>
-              <div className="subjectLecturer">
-                <span className="title">Lecturer</span>
-                <span className="lecturerName">{subject.lecturer.name}</span>
-              </div>
-              <div className="subjectattendance">
-                <span className="title">Attendance</span>
-                <ProgressBar
-                  completed={
-                    (subject.attendance.present / subject.attendance.total) *
-                    100
-                  }
-                />
+          </div>
+          <div className="subjectDetails">
+            <div className="subjectName">{subject.name.substring(0, 40)}</div>
+            <div className="subjectLecturer">
+              <span className="title">Lecturer</span>
+              <div className="lecturerName">
+                {subject.lecturer.name.substring(0, 50)}
               </div>
             </div>
+            <div className="subjectAttendance">
+              <span className="title">Attendance</span>
+              <ProgressBar
+                completed={
+                  (subject.attendance.present / subject.attendance.total) * 100
+                }
+              />
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </>
   );
 }

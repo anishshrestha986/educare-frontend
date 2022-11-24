@@ -1,7 +1,7 @@
 .navBarWrapper.expanded {
   height: 100vh;
-  width: 280px !important;
-  position: fixed;
+  min-width: 280px !important;
+  /* position: fixed; */
   top: 0;
   left: 0;
   background-color: var(--white);
@@ -11,9 +11,9 @@
   padding-left: 20px;
 }
 .navBarWrapper {
-  width: 60px;
+  width: 60px !important;
   height: 100vh;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   background-color: var(--white);
@@ -54,7 +54,7 @@
 }
 
 .navLinkLogOut {
-  background-color: transparent;
+  background-color: transparent !important;
   margin-top: 250px !important;
   font-size: 1.1rem;
   display: flex;
@@ -62,13 +62,13 @@
   border-radius: 15px;
   padding: 20px 20px;
   cursor: pointer;
-  color: var(--darkgrey);
+  color: var(--darkgrey) !important;
   text-decoration: none;
 }
 
 .navLinkLogOut:hover {
   background-color: var(--white) !important;
-  color: var(--blue);
+  color: var(--blue) !important;
 }
 
 .linkText {
