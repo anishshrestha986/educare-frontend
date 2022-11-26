@@ -2,9 +2,9 @@ import { AxiosResponse } from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useQuery } from "react-query";
-import { getOwnGrades } from "../../api/subjects";
 import Pagination from "../../components/pagination";
 import GradeCard from "../../components/GradeCard";
+import { getOwnGrades } from "../../api/grades";
 import {
   IGradeDetail,
   IGradesResponse,

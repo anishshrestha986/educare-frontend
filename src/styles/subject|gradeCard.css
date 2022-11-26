@@ -1,5 +1,6 @@
 .subjectCard,
-.gradeCard {
+.gradeCard,
+.assignmentCard {
   box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
@@ -12,6 +13,11 @@
 }
 .gradeCard {
   background-color: var(--purple);
+}
+.assignmentCard {
+  width: 800px;
+  display: flex;
+  align-items: stretch;
 }
 .subjectCard:hover,
 .gradeCard:hover {
@@ -28,6 +34,9 @@
   text-align: left;
   height: 20px;
 }
+.assignmentCard .subjectIcon {
+  flex-direction: row;
+}
 
 .subjectIcon img {
   object-fit: cover;
@@ -37,6 +46,13 @@
 .gradeDetails {
   margin-top: 50px;
   color: var(--darkgrey);
+}
+.assignmentCard .assignmentDetails {
+  flex-direction: row;
+  position: relative;
+}
+.assignmentCard .checkBox {
+  flex-direction: row;
 }
 
 .subjectName {

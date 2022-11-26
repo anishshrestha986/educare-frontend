@@ -1,7 +1,6 @@
 .navBarWrapper.expanded {
   height: 100vh;
-  min-width: 280px !important;
-  /* position: fixed; */
+  min-width: 300px;
   top: 0;
   left: 0;
   background-color: var(--white);
@@ -11,9 +10,8 @@
   padding-left: 20px;
 }
 .navBarWrapper {
-  width: 60px !important;
+  width: 60px;
   height: 100vh;
-  /* position: fixed; */
   top: 0;
   left: 0;
   background-color: var(--white);
@@ -34,6 +32,7 @@
   margin-top: 10px;
 }
 .navLinks {
+  width: 280px;
   margin-top: 10px;
   font-size: 1.1rem;
   display: flex;
@@ -45,10 +44,12 @@
   text-decoration: none;
 }
 .navLinks.active {
+  width: 250px;
   background-color: var(--blue);
   color: var(--white) !important;
 }
 .navLinks:hover {
+  width: 250px;
   background-color: var(--lightblue);
   color: var(--darkgrey) !important;
 }

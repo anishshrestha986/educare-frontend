@@ -1,6 +1,5 @@
 .subjects {
   min-width: 1200px;
-  max-width: 2000px;
 }
 .subjectCardWrapper {
   display: grid;
@@ -12,14 +11,26 @@
   padding-left: 30px;
 }
 .grades {
-  max-width: 1200px;
+  min-width: 1200px;
 }
 .gradeCardWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 4rem 2rem;
   text-align: center;
-  max-width: 1500px;
+  max-width: auto;
+  margin: 50px auto;
+  padding-left: 30px;
+}
+.assignments {
+  max-width: 1200px;
+}
+.assignmentCardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem 2rem;
+  text-align: center;
+  max-width: auto;
   margin: 50px auto;
   padding-left: 30px;
 }
