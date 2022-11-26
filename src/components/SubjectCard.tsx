@@ -3,7 +3,7 @@ import { ISubjectCardFields } from "../types/interfaces/subject.interface";
 import imageURL from "../utils/imageUrl";
 import defaultSubjectIcon from "../images/defaultSubjectIcon.png";
 import ProgressBar from "./ProgressBar";
-import "../styles/subjectCard.css";
+import "../styles/subject|gradeCard.css";
 
 export default function SubjectCard(subject: ISubjectCardFields) {
   const [subjectIcon] = subject.medias;

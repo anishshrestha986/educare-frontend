@@ -1,20 +1,26 @@
-.subjectCard {
+.subjectCard,
+.gradeCard {
   box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  height: 250px;
+  height: auto;
   width: 180px;
   background-color: var(--lightblue);
   padding: 1rem;
   text-align: left;
 }
-.subjectCard:hover {
+.gradeCard {
+  background-color: var(--purple);
+}
+.subjectCard:hover,
+.gradeCard:hover {
   transform: scale(1.05);
   transition: ease-in 250ms;
   background-color: var(--blue);
 }
-.subjectCard:hover .subjectName {
+.subjectCard:hover .subjectName,
+.gradeCard:hover .subjectName {
   color: var(--white);
 }
 
@@ -27,13 +33,14 @@
   object-fit: cover;
   width: 50px;
 }
-.subjectDetails {
+.subjectDetails,
+.gradeDetails {
   margin-top: 50px;
   color: var(--darkgrey);
 }
 
 .subjectName {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -43,14 +50,24 @@
 }
 .lecturerName {
   margin-top: 5px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 .title {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
+  margin-bottom: 10px;
+  margin-top: 15px;
 }
-.subjectAttendance {
+.subjectAttendance,
+.subjectGrade {
   margin-top: 10px;
   border-top: 0.5px solid var(--darkgrey);
+}
+.title .remarks {
+  float: right;
+}
+.title .score {
+  font-size: 0.8rem;
+  float: right;
 }
 @media only screen and (max-width: 600px) {
   .subjectCard {

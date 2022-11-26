@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { getOwnSubjects } from "../../api/subjects";
-import NavBar from "../../components/NavBar";
 import Pagination from "../../components/pagination";
 import SubjectCard from "../../components/SubjectCard";
 import { subjects } from "../../lib/subjectsDataTemp";
@@ -12,7 +11,7 @@ import {
   ISubjectsResponse,
 } from "../../types/interfaces/subject.interface";
 import toast from "../../utils/toast";
-import "../../styles/dashboard/subjects.css";
+import "../../styles/dashboard/subjects|grades.css";
 export default function Subjects() {
   // const [subjects, setSubjects] = useState<ISubjectDetail[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
