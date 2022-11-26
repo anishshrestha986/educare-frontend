@@ -82,6 +82,9 @@ button[disabled] {
   padding-left: 10px;
   border-bottom: 0.8px solid var(--darkgrey);
 }
+.dashBoardLayout {
+  display: flex;
+}
 
 @media only screen and (max-width: 600px) {
   .ctaBtn {

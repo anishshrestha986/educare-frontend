@@ -64,7 +64,7 @@ export default function login() {
       <div className="authWrapper">
         <div className="authContainer">
           <div className="authFormHead">
-            <h1 className="authHeader">login to continue.</h1>
+            <h1 className="authHeader">Login to continue.</h1>
             <p className="authSubHeader">
               Take your leap and start learning with Educare.
             </p>

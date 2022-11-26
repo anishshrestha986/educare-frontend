@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 const DashBoardLayout = () => {
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="dashBoardLayout">
         <NavBar />
         <Outlet />
       </div>
