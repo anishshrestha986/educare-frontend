@@ -15,9 +15,9 @@ export default function AssignmentCard(assignment: IAssignmentCardFields) {
         <Link to={`/assignments/${assignment._id}`}>
           <div className="checkBox">
             {assignment.completed ? (
-              <FontAwesomeIcon icon={faSquareCheck} />
+              <FontAwesomeIcon icon={faSquareCheck} className="checkbox" />
             ) : (
-              <FontAwesomeIcon icon={faSquare} />
+              <FontAwesomeIcon icon={faSquare} className="checkbox" />
             )}
           </div>
           <div className="subjectIcon">
@@ -36,12 +36,15 @@ export default function AssignmentCard(assignment: IAssignmentCardFields) {
               {assignment.name.substring(0, 40)}
             </div>
             <div className="subjectLecturer">
-              <span className="title">Lecturer</span>
-              <div className="lecturerName">
+              <span className="title">Assigned By: </span>
+              <span className="lecturerName">
                 {assignment.subject.lecturer.name.substring(0, 50)}
-              </div>
+              </span>
             </div>
-            <div className="subjectAssignment"></div>
+          </div>
+
+          <div className="assignmentDeadline">
+            Deadline: {assignment.deadline}
           </div>
         </Link>
       </div>

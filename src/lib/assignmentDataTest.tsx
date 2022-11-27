@@ -17,7 +17,7 @@ export const assignments = [
       deleted: false,
     },
     deadline: "30May",
-    completed: false,
+    completed: true,
     assignedDate: "27 may",
 
     deleted: false,
