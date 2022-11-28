@@ -4,7 +4,7 @@ interface IRoutineDetail {
   _id: string;
   day: string;
   date: Date;
-  period: IPeriodDetail;
+  periods: IPeriodDetail[];
   deleted: boolean;
 }
 interface IPeriodDetail {
@@ -12,4 +12,4 @@ interface IPeriodDetail {
   time: string;
   subject: ISubjectDetail;
 }
-export type { IPeriodDetail, ISubjectDetail };
+export type { IPeriodDetail, IRoutineDetail };
