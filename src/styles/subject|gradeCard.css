@@ -17,7 +17,8 @@
 .assignmentCard {
   width: 800px;
   display: flex;
-  align-items: stretch;
+  position: relative;
+  flex-direction: row;
 }
 .subjectCard:hover,
 .gradeCard:hover {
@@ -25,9 +26,16 @@
   transition: ease-in 250ms;
   background-color: var(--blue);
 }
+.assignmentCard:hover {
+  transform: scale(1.05);
+  transition: ease-in 250ms;
+  background-color: var(--purple);
+}
 .subjectCard:hover .subjectName,
-.gradeCard:hover .subjectName {
+.gradeCard:hover .subjectName,
+.assignmentCard:hover .assignmentName {
   color: var(--white);
+  font-weight: 600;
 }
 
 .subjectIcon {
@@ -35,7 +43,8 @@
   height: 20px;
 }
 .assignmentCard .subjectIcon {
-  flex-direction: row;
+  float: left;
+  margin: 15px 30px;
 }
 
 .subjectIcon img {
@@ -48,11 +57,30 @@
   color: var(--darkgrey);
 }
 .assignmentCard .assignmentDetails {
-  flex-direction: row;
-  position: relative;
+  margin: 15px 30px;
+
+  color: var(--darkgrey);
+  font-size: 1.5rem;
+  float: left;
+}
+.assignmentCard .assignmentDetails .subjectLecturer .lecturerName {
+  font-size: 10px;
 }
 .assignmentCard .checkBox {
-  flex-direction: row;
+  margin: 30px 20px;
+  float: left;
+}
+.checkbox {
+  height: 25px;
+  color: var(--blue);
+}
+.assignmentCard .assignmentDeadline {
+  font-weight: 100;
+  margin: 30px 20px;
+  color: var(--darkgrey);
+  margin-left: 230px;
+  float: left;
+  font-size: 1rem;
 }
 
 .subjectName {

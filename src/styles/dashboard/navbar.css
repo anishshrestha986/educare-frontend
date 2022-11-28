@@ -1,15 +1,19 @@
 .navBarWrapper.expanded {
+  display: flex;
+  position: sticky;
+  flex-direction: column;
   height: 100vh;
   min-width: 300px;
   top: 0;
   left: 0;
   background-color: var(--white);
   transition: 0.3s ease-in-out !important;
-  overflow-x: hidden;
+  overflow: hidden;
   padding-top: 40px;
   padding-left: 20px;
 }
 .navBarWrapper {
+  position: sticky;
   width: 60px;
   height: 100vh;
   top: 0;
@@ -23,6 +27,7 @@
 .navBarLogo {
   margin-bottom: 1rem;
   visibility: visible;
+  float: left;
 }
 .navBarLogo.hidden {
   display: none;
@@ -114,7 +119,8 @@
   background-color: transparent;
 }
 .arrowLeft {
-  padding-left: 50px;
+  margin-left: 20px;
+  float: left;
 }
 .hamburger {
   margin-bottom: 30px;
@@ -159,47 +165,44 @@
 }
 
 @media screen and (max-width: 1366px) {
-  .headerWrapper {
+  .navBarWrapper {
+    flex-direction: column-reverse;
     padding: 0 50px;
     margin: 0 auto;
   }
 
-  .headerWrapper {
+  .navBarWrapper {
     padding-bottom: 20px !important;
+  }
+  .navBarWrapper.expanded {
+    display: flex;
+    height: 10px;
+    width: auto;
   }
 
   .hamburger {
     display: block;
   }
 
-  .navigation-menu ul {
-    display: none;
-  }
-
-  .navigation-menu ul {
+  .navLinksWrapper {
     position: absolute;
     top: 60px;
     left: 0;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    height: calc(100vh - 77px);
+    height: calc(100vh - 100px);
   }
-  .navigation-menu li {
+  .navLinksWrapper {
     text-align: center;
     margin: 0;
   }
-  .navigation-menu li a {
+  .navLinksWrapper.expanded {
+    display: none;
+  }
+  .navLinks {
     width: 100%;
     padding: 1.5rem 0 1.5rem 1rem;
     text-align: left;
-  }
-
-  .navigation-menu ul {
-    display: none;
-  }
-
-  .navigation-menu.expanded ul {
-    display: block;
   }
 
   .dashboardHeaderWrapper {
