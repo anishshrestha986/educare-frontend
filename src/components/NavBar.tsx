@@ -12,27 +12,36 @@ export default function NavBar() {
       <div
         className={isNavExpanded ? "navBarWrapper expanded" : "navBarWrapper"}
       >
-        <Link to="/about">
-          <img
-            src={logo}
-            alt=""
-            className={isNavExpanded ? "navBarLogo" : "navBarLogo hidden"}
-          />
-        </Link>
+        <div>
+          <Link to="/about">
+            <img
+              src={logo}
+              alt=""
+              className={isNavExpanded ? "navBarLogo" : "navBarLogo hidden"}
+            />
+          </Link>
 
-        <button
-          className={isNavExpanded ? "toggler arrowLeft" : "toggler hamburger"}
-          onClick={() => {
-            setIsNavExpanded(!isNavExpanded);
-          }}
+          <button
+            className={
+              isNavExpanded ? "toggler arrowLeft" : "toggler hamburger"
+            }
+            onClick={() => {
+              setIsNavExpanded(!isNavExpanded);
+            }}
+          >
+            {isNavExpanded ? (
+              <FontAwesomeIcon icon={faAnglesLeft} className="featureIcon" />
+            ) : (
+              <FontAwesomeIcon icon={faBars} className="featureIcon" />
+            )}
+          </button>
+        </div>
+
+        <div
+          className={
+            isNavExpanded ? "navLinksWrapper expanded" : "navLinksWrapper"
+          }
         >
-          {isNavExpanded ? (
-            <FontAwesomeIcon icon={faAnglesLeft} className="featureIcon" />
-          ) : (
-            <FontAwesomeIcon icon={faBars} className="featureIcon" />
-          )}
-        </button>
-        <div className="navLinksWrapper">
           {navData.map((item) => {
             return (
               <NavLink
