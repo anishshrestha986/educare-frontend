@@ -20,7 +20,7 @@ export default function Grades() {
   const [filterText, setFilterText] = useState("");
   const [sortByDate, setSortByDate] = useState<string>();
 
-  const [sortType, setSortType] = useState("Descending");
+  // const [sortType, setSortType] = useState("Descending");
 
   // const { refetch } = useQuery(
   //   ["gradeData", currentPage, filterText, sortByDate],

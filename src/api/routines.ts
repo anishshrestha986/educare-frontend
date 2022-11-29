@@ -1,16 +1,16 @@
 import { AxiosResponse } from "axios";
 import { METHODS } from "../enums/axios.enum";
-import { IGradesResponse } from "../types/interfaces/grade.interface";
+import { IRoutinesResponse } from "../types/interfaces/routine.interface";
 import createApi from "../utils/axios";
 
-const gradeApi = createApi("/grades");
-export const getOwnGrades = async (pageParams?: {
+const routineApi = createApi("/routines");
+export const getOwnRoutines = async (pageParams?: {
   page?: number;
   limit?: number;
   q?: string;
   sort?: string;
-}): Promise<AxiosResponse<IGradesResponse>> => {
-  const data = await gradeApi({
+}): Promise<AxiosResponse<IRoutinesResponse>> => {
+  const data = await routineApi({
     method: METHODS.GET,
     url: "/me",
     params: {

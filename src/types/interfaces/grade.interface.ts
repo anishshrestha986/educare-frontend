@@ -10,8 +10,9 @@ interface IGradeDetail {
   remarks: string;
   deleted: boolean;
 }
+
 interface IGradesResponse {
-  docs: ISubjectDetail[];
+  docs: IGradeDetail[];
   totalDocs: number;
   limit: number;
   totalPages: number;
@@ -22,7 +23,6 @@ interface IGradesResponse {
   prevPage: number | null;
   nextPage: number | null;
 }
-
 interface IGradeCardFields {
   _id: string;
   subject: ISubjectDetail;
