@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useQuery } from "react-query";
-import Pagination from "../../components/pagination";
+import Pagination from "../../components/Pagination";
 import GradeCard from "../../components/GradeCard";
 import { getOwnGrades } from "../../api/grades";
 import {
@@ -20,7 +20,7 @@ export default function Grades() {
   const [filterText, setFilterText] = useState("");
   const [sortByDate, setSortByDate] = useState<string>();
 
-  const [sortType, setSortType] = useState("Descending");
+  // const [sortType, setSortType] = useState("Descending");
 
   // const { refetch } = useQuery(
   //   ["gradeData", currentPage, filterText, sortByDate],

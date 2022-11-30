@@ -11,7 +11,7 @@ interface IAssignmentDetail {
   completed: boolean;
 }
 interface IAssignmentsResponse {
-  docs: ISubjectDetail[];
+  docs: IAssignmentDetail[];
   totalDocs: number;
   limit: number;
   totalPages: number;
