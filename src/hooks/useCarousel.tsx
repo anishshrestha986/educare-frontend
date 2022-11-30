@@ -1,0 +1,106 @@
+import { useEffect, useReducer } from "react";
+import {
+  SwipeableHandlers,
+  SwipeEventData,
+  useSwipeable,
+} from "react-swipeable";
+import carouselReducer, { threshold } from "../store/carousel/carouselReducer";
+import {
+  ICarouselAction,
+  ICarouselState,
+} from "../store/carousel/carouselState";
+
+const initialCarouselState: ICarouselState = {
+  offset: 0,
+  desired: 0,
+  active: 0,
+};
+const transitionTime = 400;
+const elastic = `transform ${transitionTime}ms cubic-bezier(0.68, -0.55, 0.265, 1.55)`;
+const smooth = `transform ${transitionTime}ms ease`;
+function swiped(
+  e: SwipeEventData,
+  dispatch: React.Dispatch<ICarouselAction>,
+  length: number,
+  dir: 1 | -1
+) {
+  let t;
+  if (e.event.target) {
+    t = threshold(e.event.target);
+
+    const d = dir * e.deltaX;
+
+    if (d >= t) {
+      dispatch({
+        type: dir > 0 ? "next" : "prev",
+        length,
+      });
+    } else {
+      dispatch({
+        type: "drag",
+        offset: 0,
+      });
+    }
+  }
+}
+export function useCarousel(
+  length: number,
+  interval: number
+): [number, (n: number) => void, SwipeableHandlers, React.CSSProperties] {
+  const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
+  const handlers = useSwipeable({
+    onSwiping(e) {
+      dispatch({
+        type: "drag",
+        offset: -e.deltaX,
+      });
+    },
+    onSwipedLeft(e) {
+      swiped(e, dispatch, length, 1);
+    },
+    onSwipedRight(e) {
+      swiped(e, dispatch, length, -1);
+    },
+    trackMouse: true,
+    trackTouch: true,
+  });
+
+  useEffect(() => {
+    const id = setTimeout(() => dispatch({ type: "next", length }), interval);
+    return () => clearTimeout(id);
+  }, [state.offset, state.active]);
+
+  useEffect(() => {
+    const id = setTimeout(() => dispatch({ type: "done" }), transitionTime);
+    return () => clearTimeout(id);
+  }, [state.desired]);
+
+  const style: React.CSSProperties = {
+    transform: "translateX(0)",
+    width: `${100 * (length + 2)}%`,
+    left: `-${(state.active + 1) * 100}%`,
+  };
+
+  if (state.desired !== state.active) {
+    const dist = Math.abs(state.active - state.desired);
+    const pref = Math.sign(state.offset || 0);
+    const dir =
+      (dist > length / 2 ? 1 : -1) * Math.sign(state.desired - state.active);
+    const shift = (100 * (pref || dir)) / (length + 2);
+    style.transition = smooth;
+    style.transform = `translateX(${shift}%)`;
+  } else if (!isNaN(state.offset)) {
+    if (state.offset !== 0) {
+      style.transform = `translateX(${state.offset}px)`;
+    } else {
+      style.transition = elastic;
+    }
+  }
+
+  return [
+    state.active,
+    (n) => dispatch({ type: "jump", desired: n }),
+    handlers,
+    style,
+  ];
+}

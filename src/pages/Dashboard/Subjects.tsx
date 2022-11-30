@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { getOwnSubjects } from "../../api/subjects";
-import Pagination from "../../components/pagination";
+import Pagination from "../../components/Pagination";
 import SubjectCard from "../../components/SubjectCard";
 import { subjects } from "../../lib/subjectsDataTemp";
 import {
