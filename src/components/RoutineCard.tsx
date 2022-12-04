@@ -8,9 +8,9 @@ export default function RoutineCard(routine: IRoutineDetail) {
       <div className="routineCardWrapper">
         <div className="routineLabel">{routine.day}</div>
         <div className="routineWrapper">
-          <Carousel
-            {...routine.periods.map((period) => <PeriodCard {...period} />)}
-          />
+          {routine.periods.map((period) => (
+            <PeriodCard {...period} />
+          ))}
         </div>
       </div>
     </>
