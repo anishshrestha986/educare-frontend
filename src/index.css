@@ -12,6 +12,8 @@
   --grey: #bfc5cd;
   --purple: #dee1ff;
   --darkgrey: #5d5d5d;
+  --yellow: #fffcba;
+  --greyishblue: #e9f1ff;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

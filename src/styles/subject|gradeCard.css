@@ -24,18 +24,17 @@
 .gradeCard:hover {
   transform: scale(1.05);
   transition: ease-in 250ms;
-  background-color: var(--blue);
+  background-color: var(--greyishblue);
 }
 .assignmentCard:hover {
   transform: scale(1.05);
   transition: ease-in 250ms;
-  background-color: var(--purple);
+  background-color: var(--greyishblue);
 }
 .subjectCard:hover .subjectName,
 .gradeCard:hover .subjectName,
 .assignmentCard:hover .assignmentName {
-  color: var(--white);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .subjectIcon {
@@ -60,7 +59,7 @@
   margin: 15px 30px;
 
   color: var(--darkgrey);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   float: left;
 }
 .assignmentCard .assignmentDetails .subjectLecturer .lecturerName {
@@ -80,24 +79,24 @@
   color: var(--darkgrey);
   margin-left: 230px;
   float: left;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .subjectName {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .subjectLecturer {
   margin-top: 5px;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 .lecturerName {
   margin-top: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .title {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   margin-bottom: 10px;
   margin-top: 15px;
 }

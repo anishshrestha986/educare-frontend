@@ -12,6 +12,7 @@ import toast from "../../utils/toast";
 import { getOwnRoutines } from "../../api/routines";
 import { Carousel } from "../../components/Carousel";
 import { RoutineData as routines } from "../../lib/routineDataTest";
+import "../../styles/dashboard/dashboard.css";
 const Dashboard = () => {
   // const [routines, setRoutines] = useState<IRoutineDetail[]>([]);
   const [currentPage, setCurrentPage] = useState(1);

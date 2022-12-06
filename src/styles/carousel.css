@@ -1,5 +1,12 @@
 .carousel {
-  color: var(--blue);
-  width: auto;
-  border-radius: 10px;
+  height: 700px;
+  overflow-x: hidden;
+}
+.carousel-content {
+  margin-top: 40px;
+  display: flex;
+  position: relative;
+}
+.carousel-indicators {
+  display: flex;
 }

@@ -1,6 +1,6 @@
 import { IRoutineDetail } from "../types/interfaces/routine.interface";
-import { Carousel } from "./Carousel";
 import PeriodCard from "./PeriodCard";
+import "../styles/dashboard/routine.css";
 
 export default function RoutineCard(routine: IRoutineDetail) {
   return (

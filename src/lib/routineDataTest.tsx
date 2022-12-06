@@ -46,7 +46,7 @@ export const RoutineData = [
   },
   {
     _id: "234",
-    day: "Sunday",
+    day: "Monday",
     periods: [
       {
         _id: "1",
@@ -91,7 +91,7 @@ export const RoutineData = [
   },
   {
     _id: "234",
-    day: "Sunday",
+    day: "Tuesday",
     periods: [
       {
         _id: "1",
@@ -136,7 +136,7 @@ export const RoutineData = [
   },
   {
     _id: "234",
-    day: "Sunday",
+    day: "wednesday",
     periods: [
       {
         _id: "1",
@@ -181,7 +181,7 @@ export const RoutineData = [
   },
   {
     _id: "234",
-    day: "Sunday",
+    day: "Thursday",
     periods: [
       {
         _id: "1",
