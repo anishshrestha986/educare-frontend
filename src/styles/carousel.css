@@ -1,0 +1,12 @@
+.carousel {
+  height: 700px;
+  overflow-x: hidden;
+}
+.carousel-content {
+  margin-top: 40px;
+  display: flex;
+  position: relative;
+}
+.carousel-indicators {
+  display: flex;
+}

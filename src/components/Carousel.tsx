@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { useCarousel } from "../hooks/useCarousel";
+import "../styles/carousel.css";
 
 interface ICarouselProps {
   slides: ReactNode[];
@@ -13,15 +14,6 @@ export const Carousel = ({ slides, interval = 5000 }: ICarouselProps) => {
     <>
       {length > 0 && (
         <div className="carousel">
-          <ol className="carousel-indicators">
-            {slides.map((_, index) => (
-              <li
-                onClick={() => setActive(index)}
-                key={index}
-                className={`${active === index ? "active" : ""}`}
-              />
-            ))}
-          </ol>
           <div className="carousel-content" {...handlers} style={style}>
             <div className="carousel-item">{slides[slides.length - 1]}</div>
             {slides.map((slide, index) => (
@@ -31,6 +23,15 @@ export const Carousel = ({ slides, interval = 5000 }: ICarouselProps) => {
             ))}
             <div className="carousel-item">{slides[0]}</div>
           </div>
+          <ol className="carousel-indicators">
+            {slides.map((_, index) => (
+              <li
+                onClick={() => setActive(index)}
+                key={index}
+                className={`${active === index ? "active" : ""}`}
+              />
+            ))}
+          </ol>
         </div>
       )}
     </>

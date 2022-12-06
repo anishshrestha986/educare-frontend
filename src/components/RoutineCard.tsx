@@ -1,6 +1,6 @@
 import { IRoutineDetail } from "../types/interfaces/routine.interface";
-import { Carousel } from "./Carousel";
 import PeriodCard from "./PeriodCard";
+import "../styles/dashboard/routine.css";
 
 export default function RoutineCard(routine: IRoutineDetail) {
   return (
@@ -8,9 +8,9 @@ export default function RoutineCard(routine: IRoutineDetail) {
       <div className="routineCardWrapper">
         <div className="routineLabel">{routine.day}</div>
         <div className="routineWrapper">
-          <Carousel
-            {...routine.periods.map((period) => <PeriodCard {...period} />)}
-          />
+          {routine.periods.map((period) => (
+            <PeriodCard {...period} />
+          ))}
         </div>
       </div>
     </>

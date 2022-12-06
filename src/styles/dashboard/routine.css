@@ -1,0 +1,49 @@
+.periodWrapper {
+  margin-top: 5px;
+  padding: 0.3rem;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(20px, 0.4fr));
+  background-color: var(--white);
+  gap: 1rem;
+  text-align: center;
+}
+.subjectInfo {
+  font-size: 0.9rem;
+}
+.subject {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.time {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid var(--blue);
+  width: 150px;
+}
+.routineCardWrapper {
+  width: 400px;
+  margin-bottom: 50px;
+}
+.routineLabel {
+  margin-top: -40px;
+  position: absolute;
+  margin-left: 130px;
+  font-size: 0.9rem;
+  box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 0px 7px -1px rgba(0, 0, 0, 0.15);
+  width: 100px;
+  padding: 0.7rem;
+  border-radius: 10px;
+  background-color: var(--yellow);
+}
+.routineWrapper {
+  min-height: 250px;
+  max-height: 250px;
+  background-color: var(--greyishblue);
+  padding: 0.7rem;
+}

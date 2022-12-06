@@ -45,7 +45,7 @@ function swiped(
 }
 export function useCarousel(
   length: number,
-  interval: number
+  interval?: number
 ): [number, (n: number) => void, SwipeableHandlers, React.CSSProperties] {
   const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
   const handlers = useSwipeable({

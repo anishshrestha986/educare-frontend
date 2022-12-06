@@ -21,7 +21,8 @@ interface IRoutinesResponse {
 }
 interface IPeriodDetail {
   _id: string;
-  time: string;
+  start_time: string;
+  end_time: string;
   subject: ISubjectDetail;
 }
 export type { IPeriodDetail, IRoutineDetail, IRoutinesResponse };
